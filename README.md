@@ -1,7 +1,7 @@
 # RAISO Projects Committee
 Projects done by Projects Committee for Northwestern Responsible AI Student Organization
 
-## Fall 2022: Sentiment Analysis for Chat Messaging
+## Fall 2022: Sentiment Analysis
 Sessions on Monday 7-8 PM in Tech L170
 
 ### Course Syllabus (Tentative)
