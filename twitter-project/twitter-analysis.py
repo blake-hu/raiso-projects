@@ -1,4 +1,4 @@
-# Importing Libraries
+# Importing Libraries 
 import pandas as pd
 import numpy as np
 import re
@@ -38,8 +38,8 @@ train_df['clean_tweet'] = train_df['clean_tweet'].apply(lambda x: re.sub(r'[^\w\
 train_df['clean_tweet'] = train_df['clean_tweet'].apply(lambda x: re.sub(r'[^a-zA-Z0-9]',' ',x))
 
 # Remove if this takes too much time
-# print('Remove if this takes too much time')
-# train_df['clean_tweet'].apply(lambda x: str(textblob(x).correct()))
+print('Remove if this takes too much time')
+train_df['clean_tweet'].apply(lambda x: str(TextBlob(x).correct()))
 
 
 # Creating token for the clean tweets
@@ -51,6 +51,7 @@ train_df['tweet_token'] = train_df['clean_tweet'].apply(lambda x: word_tokenize(
 # Importing stop words from NLTK coupus and word tokenizer
 print('Importing stop words from NLTK coupus and word tokenizer')
 from nltk.corpus import stopwords
+nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 train_df['tweet_token_filtered'] = train_df['tweet_token'].apply(lambda x: [word for word in x if not word in stop_words])
 
@@ -64,6 +65,7 @@ stemming = PorterStemmer()
 train_df['tweet_stemmed'] = train_df['tweet_token_filtered'].apply(lambda x: ' '.join([stemming.stem(i) for i in x]))
 
 from nltk.stem.wordnet import WordNetLemmatizer
+nltk.download('wordnet')
 nltk.download('omw-1.4')
 lemmatizing = WordNetLemmatizer()
 train_df['tweet_lemmatized'] = train_df['tweet_token_filtered'].apply(lambda x: ' '.join([lemmatizing.lemmatize(i) for i in x]))
