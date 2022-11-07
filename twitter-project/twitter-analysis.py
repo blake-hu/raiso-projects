@@ -25,35 +25,27 @@ html_parser = HTMLParser()
 train_df['clean_tweet'] = train_df['message'].apply(lambda x: html_parser.unescape(x))
 print(train_df)
 
-# Looking up and replacement
+# TODO: Try using lambda functions on your own now!
 print('Looking up and replacement')
-train_df['clean_tweet'] = train_df['clean_tweet'].apply(lambda x: x.lower())
-train_df['clean_tweet'] = train_df['clean_tweet'].apply(lambda x: lookup_dict(x,SHORT_WORD_DICT))
-train_df['clean_tweet'] = train_df['clean_tweet'].apply(lambda x: lookup_dict(x,APOSTROPHE_DICT))
-train_df['clean_tweet'] = train_df['clean_tweet'].apply(lambda x: lookup_dict(x,EMOTICON_DICT))
 
 # Replacing punctuation and numbers
 print('Replacing punctuation and numbers')
 train_df['clean_tweet'] = train_df['clean_tweet'].apply(lambda x: re.sub(r'[^\w\s]',' ',x))
 train_df['clean_tweet'] = train_df['clean_tweet'].apply(lambda x: re.sub(r'[^a-zA-Z0-9]',' ',x))
 
-# Remove if this takes too much time
-print('Remove if this takes too much time')
-train_df['clean_tweet'].apply(lambda x: str(TextBlob(x).correct()))
-
 
 # Creating token for the clean tweets
 print('Creating token for the clean tweets')
 from nltk.tokenize import word_tokenize
 nltk.download('punkt')
-train_df['tweet_token'] = train_df['clean_tweet'].apply(lambda x: word_tokenize(x))
+# TODO: Try using lambda functions and applying word_tokenize to the words!
 
 # Importing stop words from NLTK coupus and word tokenizer
 print('Importing stop words from NLTK coupus and word tokenizer')
 from nltk.corpus import stopwords
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
-train_df['tweet_token_filtered'] = train_df['tweet_token'].apply(lambda x: [word for word in x if not word in stop_words])
+#  TODO: How do you remove stopwords using a lambda function?
 
 print(train_df)
 
@@ -68,6 +60,6 @@ from nltk.stem.wordnet import WordNetLemmatizer
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 lemmatizing = WordNetLemmatizer()
-train_df['tweet_lemmatized'] = train_df['tweet_token_filtered'].apply(lambda x: ' '.join([lemmatizing.lemmatize(i) for i in x]))
+# TODO: Use WordNetLemmatizer.lemmatize() to create a new tweet_lemmatized column!
 train_df['tweet_lemmatized'].head(10)
 print(train_df)
