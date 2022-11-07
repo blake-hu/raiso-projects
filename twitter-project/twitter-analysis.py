@@ -54,8 +54,7 @@ print(train_df)
 print('Importing library for stemming')
 from nltk.stem import PorterStemmer
 stemming = PorterStemmer()
-train_df['tweet_stemmed'] = train_df['tweet_token_filtered'].apply(lambda x: ' '.join([stemming.stem(i) for i in x]))
-
+# TODO: Use PorterStemmer.stem() to create a new tweet_stem column! All words must be joined by a space.
 from nltk.stem.wordnet import WordNetLemmatizer
 nltk.download('wordnet')
 nltk.download('omw-1.4')
