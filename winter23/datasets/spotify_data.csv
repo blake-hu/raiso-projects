@@ -1,4 +1,4 @@
-danceability,energy,key,loudness,mode,speechiness,acousticness,instrumentalness,liveness,valence,tempo,id,duration_ms,time_signature,liked
+danceability,energy,key,loudness,mode,speechiness,acousticness,instrumentalness,liveness,valence,tempo,id,duration_ms,time_signature,stars
 0.885,0.581,11,-8.813,1,0.0378,0.427,0.000204,0.0759,0.728,114.016,2jiPHbFX5XM8TjaTfYJ0eo,313684,4,1
 0.716,0.531,7,-7.355,1,0.122,0.0703,0.0,0.224,0.344,71.994,74tLlkN3rgVzRqQJgPfink,386907,4,0
 0.712,0.477,11,-7.689,1,0.0314,0.752,0.0,0.109,0.317,96.037,04GpBu5gm14iLJRfmwi4RS,283361,4,0
